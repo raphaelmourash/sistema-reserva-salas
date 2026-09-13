@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "primeicons": "^8.0.1",
+    "primereact": "^10.9.9",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.3"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",
