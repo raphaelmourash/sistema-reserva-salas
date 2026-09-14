@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom' // <-- Alterado aqui para 'react-router-dom'
+import { HashRouter } from 'react-router-dom' // 1. Mude de BrowserRouter para HashRouter
 
 // Importações do PrimeReact e ícones
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
@@ -12,8 +12,8 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter> {/* 2. Troque a tag para <HashRouter> */}
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 )
