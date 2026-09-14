@@ -34,7 +34,7 @@ export default function UsuariosCadastrados() {
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '20px' }}>
       <h2>Usuários Cadastrados no Sistema</h2>
-      <p style={{ color: '#666', marginBottom: '20px' }}>Dados simulados em tempo real via API pública</p>
+      
 
       <div className="card" style={{ background: '#fff', borderRadius: '8px', padding: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
         <DataTable value={usuarios} paginator rows={5} stripedRows tableStyle={{ minWidth: '50rem' }}>

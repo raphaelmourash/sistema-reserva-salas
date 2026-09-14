@@ -1,0 +1,164 @@
+.home-page {
+  padding: 8px 0 24px;
+}
+
+/* Faixa de boas-vindas */
+.home-welcome {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: var(--surface-50, #f8f9fa);
+  border-left: 4px solid var(--primary-color, #6366f1);
+  border-radius: 8px;
+}
+
+.home-welcome-text h2 {
+  margin: 0 0 4px 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-color, #1f2937);
+}
+
+.home-welcome-text p {
+  margin: 0;
+  color: var(--text-color-secondary, #6b7280);
+  font-size: 0.95rem;
+}
+
+/* Barra de busca e filtros — funcional, não decorativa: ajuda a achar
+   uma sala num catálogo que pode crescer bastante. */
+.home-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.home-toolbar .p-input-icon-left {
+  flex: 1 1 240px;
+  min-width: 220px;
+}
+
+.home-toolbar .p-input-icon-left input {
+  width: 100%;
+}
+
+.home-toolbar .p-dropdown {
+  min-width: 180px;
+}
+
+.home-section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.home-section-title {
+  margin: 0;
+  color: var(--text-color, #1f2937);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.home-section-count {
+  color: var(--text-color-secondary, #6b7280);
+  font-size: 0.85rem;
+}
+
+/* Grid de salas */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.room-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--surface-border, #e5e7eb);
+}
+
+.room-card-media {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.room-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.room-card-status {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.room-card-title {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-color, #1f2937);
+}
+
+.room-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-color-secondary, #4b5563);
+  margin-bottom: 14px;
+}
+
+.room-card-meta i {
+  margin-right: 8px;
+  color: var(--primary-color, #6366f1);
+  width: 14px;
+}
+
+.room-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.room-card-chips .p-chip {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.65rem;
+  background: var(--surface-100, #f1f5f9);
+}
+
+/* Estado vazio: convite a agir, não só um aviso */
+.home-empty-state {
+  text-align: center;
+  padding: 56px 16px;
+  color: var(--text-color-secondary, #6b7280);
+  border: 1px dashed var(--surface-border, #e5e7eb);
+  border-radius: 10px;
+}
+
+.home-empty-state i {
+  font-size: 1.8rem;
+  color: var(--text-color-secondary, #9ca3af);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.home-empty-state p {
+  margin: 0 0 14px 0;
+}
+
+@media (max-width: 560px) {
+  .home-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

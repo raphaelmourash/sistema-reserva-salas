@@ -1,0 +1,300 @@
+.rfm-dialog .p-dialog-header {
+  padding-bottom: 0.75rem;
+}
+
+.rfm-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.rfm-header-img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.rfm-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.rfm-header-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color, #1f2937);
+}
+
+.rfm-header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.rfm-recursos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.rfm-recurso-tag {
+  font-weight: 400;
+}
+
+.rfm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
+}
+
+.rfm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rfm-field label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-color-secondary, #6b7280);
+}
+
+.rfm-field-full {
+  grid-column: 1 / -1;
+}
+
+.rfm-field-half {
+  grid-column: span 1;
+}
+
+.rfm-field .p-calendar,
+.rfm-field .p-inputtext,
+.rfm-field .p-inputnumber,
+.rfm-field .p-inputtextarea {
+  width: 100%;
+}
+
+.rfm-error {
+  color: var(--red-500, #ef4444);
+  font-size: 0.78rem;
+}
+
+.rfm-agenda {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--surface-50, #f8fafc);
+  border: 1px solid var(--surface-border, #e5e7eb);
+  border-radius: 8px;
+}
+
+.rfm-agenda-titulo {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-color, #1f2937);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.rfm-agenda-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.rfm-agenda-lista li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-color-secondary, #374151);
+}
+
+.rfm-agenda-info {
+  flex: 1;
+}
+
+.rfm-agenda-responsavel {
+  color: var(--text-color-secondary, #6b7280);
+}
+
+.rfm-agenda-acoes {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.rfm-agenda-editar,
+.rfm-agenda-cancelar {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.rfm-agenda-editar {
+  color: var(--primary-color, #6366f1);
+}
+
+.rfm-agenda-editar:hover {
+  background: var(--primary-50, #eef2ff);
+}
+
+.rfm-agenda-cancelar {
+  color: var(--red-400, #f87171);
+}
+
+.rfm-agenda-cancelar:hover {
+  background: var(--red-50, #fef2f2);
+  color: var(--red-500, #ef4444);
+}
+
+.rfm-editando-aviso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--primary-50, #eef2ff);
+  border: 1px solid var(--primary-100, #e0e7ff);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: var(--primary-color, #6366f1);
+}
+
+.rfm-editando-aviso i {
+  margin-right: 0.3rem;
+}
+
+.rfm-editando-cancelar {
+  border: none;
+  background: transparent;
+  color: var(--primary-color, #6366f1);
+  text-decoration: underline;
+  font-size: 0.78rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.rfm-hint-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  background: var(--yellow-50, #fffbeb);
+  border: 1px solid var(--yellow-200, #fde68a);
+  border-radius: 6px;
+  color: var(--yellow-800, #92400e);
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
+.rfm-hint-box i {
+  margin-top: 0.1rem;
+}
+
+.rfm-slots-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.rfm-slot {
+  border: 1px solid var(--surface-border, #e5e7eb);
+  background: #fff;
+  border-radius: 6px;
+  padding: 5px 9px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--text-color, #1f2937);
+  min-width: 54px;
+  text-align: center;
+}
+
+.rfm-slot:hover:not(:disabled) {
+  border-color: var(--primary-color, #6366f1);
+  background: var(--primary-50, #eef2ff);
+}
+
+.rfm-slot-ocupado {
+  background: var(--red-50, #fef2f2);
+  border-color: var(--red-100, #fee2e2);
+  color: var(--red-400, #f87171);
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.rfm-slot-selecionado {
+  background: var(--primary-color, #6366f1);
+  border-color: var(--primary-color, #6366f1);
+  color: #fff;
+  font-weight: 600;
+}
+
+.rfm-slots-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: var(--text-color-secondary, #6b7280);
+}
+
+.rfm-legenda-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rfm-legenda-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.rfm-legenda-livre {
+  background: #fff;
+  border: 1px solid var(--surface-border, #e5e7eb);
+}
+
+.rfm-legenda-selecionado {
+  background: var(--primary-color, #6366f1);
+}
+
+.rfm-legenda-ocupado {
+  background: var(--red-300, #fca5a5);
+}
+
+.rfm-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+@media (max-width: 560px) {
+  .rfm-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rfm-field-half {
+    grid-column: 1 / -1;
+  }
+}

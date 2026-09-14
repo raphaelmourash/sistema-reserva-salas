@@ -1,0 +1,208 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background: var(--surface-50, #f8f9fb);
+}
+
+/* Painel de destaque (Lado esquerdo com a cor do MeetSync) */
+.login-panel {
+  flex: 1 1 42%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 64px 56px;
+  background: #00bcd4; /* Cor turquesa principal do MeetSync */
+  color: #fff;
+}
+
+.login-panel-icon-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  padding: 1%;
+  background: #ffffff; /* Fundo branco para destacar o ícone */
+  border-radius: 75px; /* Deixa totalmente circular */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* Sombra elegante */
+  margin-bottom: 12px;
+}
+
+.login-panel h1 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 22ch;
+  color: #0f172a; /* Tom escuro para contraste no fundo turquesa */
+}
+
+.login-panel p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 34ch;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+/* Área do formulário */
+.login-form-area {
+  flex: 1 1 58%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--surface-border, #e5e7eb);
+  background: #ffffff;
+  padding: 36px 32px;
+}
+
+/* Estilização para a Logo Completa no Topo do Card (Corrigido o alinhamento) */
+.login-card-header {
+  margin-bottom: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente a imagem e o texto abaixo */
+}
+
+/* Tamanho padrão da logo para Desktop */
+.login-logo-completa {
+  width: 400px; /* Tamanho ideal para ter destaque no desktop */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px auto;
+  transition: width 0.3s ease; /* Suaviza a transição */
+}
+
+.login-card-header p {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-color-secondary, #6b7280);
+}
+
+.login-message {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.login-field label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--text-color, #1f2937);
+  letter-spacing: 0.03em;
+}
+
+.login-field .p-inputtext,
+.login-field .p-password,
+.login-field .p-password input {
+  width: 100%;
+}
+
+.login-submit {
+  width: 100%;
+  margin-top: 2px;
+  background-color: #00bcd4 !important;
+  border-color: #00bcd4 !important;
+  font-weight: 700;
+}
+
+.login-submit:hover {
+  background-color: #00acc1 !important;
+  border-color: #00acc1 !important;
+}
+
+.login-divider-text {
+  color: var(--text-color-secondary, #9ca3af);
+  font-size: 0.78rem;
+  padding: 0 6px;
+}
+
+.login-random-btn {
+  width: 100%;
+}
+
+.login-hint {
+  margin: 18px 0 0 0;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--text-color-secondary, #9ca3af);
+}
+
+/* Media Queries para telas menores (Mobile) */
+@media (max-width: 860px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-panel {
+    flex: none;
+    padding: 36px 28px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .login-panel h1 {
+    font-size: 1.5rem;
+    max-width: none;
+  }
+
+  .login-panel p {
+    max-width: none;
+  }
+
+  .login-form-area {
+    padding: 28px 20px 40px;
+  }
+  
+  /* Ajuste do tamanho da logo para Mobile */
+  .login-logo-completa {
+    width: 220px; /* Reduz levemente para caber bem em telas pequenas sem quebrar o layout */
+    margin: 0 auto 16px auto;
+  }
+  /* Cabeçalho do Card alinhado à esquerda */
+.login-card-header {
+  margin-bottom: 24px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Joga os elementos filhos para a margem esquerda */
+}
+
+/* Tamanho da logo e alinhamento à esquerda */
+.login-logo-completa {
+  width: 320px; /* Reduz levemente para encaixar perfeitamente no card */
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 0 12px 0; /* Remove a margem automática e alinha totalmente à esquerda */
+  transition: width 0.3s ease;
+}
+}

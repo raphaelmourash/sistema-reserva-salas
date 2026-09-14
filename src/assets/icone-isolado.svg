@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente da Seta Superior / Direita (Turquesa Vivo) -->
+    <linearGradient id="tealArrowGrad" x1="30%" y1="90%" x2="90%" y2="20%">
+      <stop offset="0%" stop-color="#00acc1" />
+      <stop offset="60%" stop-color="#26c6da" />
+      <stop offset="100%" stop-color="#80deea" />
+    </linearGradient>
+
+    <!-- Gradiente da Seta Inferior / Esquerda (Azul Profundo) -->
+    <linearGradient id="blueArrowGrad" x1="20%" y1="20%" x2="80%" y2="80%">
+      <stop offset="0%" stop-color="#0052cc" />
+      <stop offset="100%" stop-color="#0077ff" />
+    </linearGradient>
+
+    <!-- Gradiente dos Arcos Circulares -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00838f" />
+      <stop offset="50%" stop-color="#00bcd4" />
+      <stop offset="100%" stop-color="#00acc1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Anel / Arco Superior -->
+  <path d="M256 56 C362 56 456 142 456 248 C456 264 454 280 450 295 L395 272 C398 261 400 250 400 238 C400 172 346 118 280 118 C266 118 253 120 240 123 L215 72 C228 62 242 56 256 56 Z" fill="url(#ringGrad)" />
+
+  <!-- Anel / Arco Inferior -->
+  <path d="M256 456 C150 456 56 370 56 264 C56 248 58 232 62 217 L117 240 C114 251 112 262 112 274 C112 340 166 394 232 394 C246 394 259 392 272 389 L297 440 C284 450 270 456 256 456 Z" fill="url(#ringGrad)" />
+
+  <!-- Ponto Central -->
+  <circle cx="256" cy="256" r="18" fill="#0077ff" />
+
+  <!-- Seta Inferior / Esquerda (Azul) -->
+  <path d="M260 252 L110 402" stroke="url(#blueArrowGrad)" stroke-width="44" stroke-linecap="round" />
+  <polygon points="78,442 145,410 102,367" fill="#0052cc" />
+
+  <!-- Seta Superior / Direita (Turquesa) -->
+  <g opacity="0.95">
+    <path d="M252 260 L402 110" stroke="url(#tealArrowGrad)" stroke-width="44" stroke-linecap="round" />
+    <polygon points="434,70 367,102 410,145" fill="#26c6da" />
+  </g>
+</svg>
