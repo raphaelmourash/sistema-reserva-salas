@@ -4,13 +4,11 @@ import { Password } from 'primereact/password';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Message } from 'primereact/message';
-import { Divider } from 'primereact/divider';
 import { useNavigate } from 'react-router-dom';
+import { supabase } from '../supabaseClient'; // Garanta que a sua instância configurada do Supabase está neste caminho
 
-// Importando as imagens diretamente da pasta src/assets
 import iconeIsolado from '../assets/icone_isolado.png';
 import logoCompleto from '../assets/logo-completo.png';
-
 import './Login.css';
 
 export default function Login() {
@@ -21,7 +19,7 @@ export default function Login() {
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
 
-  // 1. Validação do login (manual ou gerado pelo sorteio)
+  // Autenticação com o Supabase Auth
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -35,71 +33,43 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const users = await response.json();
+      // Chamada real para validar as credenciais no banco do Supabase
+      const { data, error: authError } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password: password,
+      });
 
-      // Valida se o e-mail e a senha (telefone) conferem com algum usuário da API
-      const validUser = users.find(
-        (u) =>
-          u.email.toLowerCase() === email.trim().toLowerCase() &&
-          u.phone.trim() === password.trim()
-      );
+      if (authError) {
+        setError(authError.message || 'E-mail ou senha inválidos.');
+        setLoading(false);
+        return;
+      }
 
-      if (validUser) {
-        setSuccessMessage(`Login bem-sucedido, ${validUser.name}! Redirecionando...`);
-        localStorage.setItem('usuarioLogado', JSON.stringify(validUser));
+      if (data?.user) {
+        // Monta o objeto com os dados reais do utilizador autenticado
+        const usuarioReal = {
+          id: data.user.id,
+          email: data.user.email,
+          name: data.user.user_metadata?.full_name || data.user.email.split('@')[0],
+        };
+
+        setSuccessMessage(`Login bem-sucedido, ${usuarioReal.name}! Redirecionando...`);
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioReal));
 
         setTimeout(() => {
           navigate('/home');
-        }, 1500);
-      } else {
-        setError('E-mail ou senha inválidos. Verifique os dados ou clique em sortear.');
-        setLoading(false);
+        }, 1200);
       }
     } catch (err) {
-      console.error('Erro na validação do login:', err);
+      console.error('Erro na autenticação:', err);
       setError('Erro de conexão ao tentar validar o acesso.');
-      setLoading(false);
-    }
-  };
-
-  // 2. Sorteia o usuário: preenche o e-mail visível e preenche a senha com o telefone (mas mascarada em bolinhas)
-  const handleRandomLogin = async () => {
-    setError('');
-    setSuccessMessage('');
-    setLoading(true);
-
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      const users = await response.json();
-
-      if (users && users.length > 0) {
-        const randomIndex = Math.floor(Math.random() * users.length);
-        const randomUser = users[randomIndex];
-
-        // Preenche o e-mail para identificação visual na tela
-        setEmail(randomUser.email);
-
-        // Preenche a senha com o telefone da API, mas o componente Password exibe as bolinhas padrão (••••••)
-        setPassword(randomUser.phone);
-
-        setSuccessMessage(`Usuário sorteado: ${randomUser.name}. A senha foi preenchida com segurança.`);
-
-        setLoading(false);
-      } else {
-        setError('Não foi possível carregar os usuários da API.');
-        setLoading(false);
-      }
-    } catch (err) {
-      console.error('Erro ao sortear usuário:', err);
-      setError('Erro de conexão ao tentar realizar o login aleatório.');
       setLoading(false);
     }
   };
 
   return (
     <div className="login-page">
-      {/* Painel de destaque esquerdo com o Ícone Isolado do MeetSync */}
+      {/* Painel de destaque esquerdo */}
       <div className="login-panel">
         <img 
           src={iconeIsolado} 
@@ -112,15 +82,12 @@ export default function Login() {
 
       <div className="login-form-area">
         <Card className="login-card">
-          
-          {/* Cabeçalho do Card com a Logo Completa do MeetSync (Corrigido o alinhamento) */}
           <div className="login-card-header">
             <img 
               src={logoCompleto} 
               alt="MeetSync - Sistema de Reserva de Salas" 
               className="login-logo-completa" 
             />
-           
           </div>
 
           {error && <Message severity="error" text={error} className="login-message" />}
@@ -140,7 +107,7 @@ export default function Login() {
             </div>
 
             <div className="login-field">
-              <label htmlFor="password">Senha (Telefone)</label>
+              <label htmlFor="password">Senha</label>
               <Password
                 id="password"
                 value={password}
@@ -160,23 +127,6 @@ export default function Login() {
               disabled={loading}
             />
           </form>
-
-          <Divider align="center">
-            <span className="login-divider-text">ou</span>
-          </Divider>
-
-          <Button
-            label="Sortear Usuário Aleatório"
-            type="button"
-            icon="pi pi-random"
-            className="p-button-outlined p-button-secondary login-random-btn"
-            onClick={handleRandomLogin}
-            disabled={loading}
-          />
-
-          <p className="login-hint">
-            Ao sortear, o e-mail aparece visível e a senha é preenchida automaticamente, protegida por bolinhas.
-          </p>
         </Card>
       </div>
     </div>
